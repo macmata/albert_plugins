@@ -23,6 +23,7 @@ def run(query):
     base_command = "egrep -r"
     process = subprocess.Popen((base_command+" "+query.string+" "+NOTES_DIR).split(), stdout=subprocess.PIPE)
     comm_tuples = process.communicate()
+    process.kill()
     return comm_tuples[0].splitlines()
 
 

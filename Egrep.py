@@ -20,13 +20,13 @@ def handleQuery(query):
 
 
 def run(query):
-    process = subprocess.Popen(["egrep", "-r", query.string, NOTES_DIR], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["egrep", "-r", query, NOTES_DIR], stdout=subprocess.PIPE)
     comm_tuples = process.communicate()
     return comm_tuples[0].splitlines()
 
 
 def agregate(query):
-    results = run(query)
+    results = run(query.string)
     items = []
     for line in results:
         r = line[-(len(line) - len(NOTES_DIR) - 1):]

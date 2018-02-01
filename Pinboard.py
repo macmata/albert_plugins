@@ -75,10 +75,10 @@ def handleQuery(query):
 
 def agregate(query):
     results = run(query.string)
-    items = []
+    l = []
     for k, v in results.items():
         for l in v:
-            items.append(
+            l.append(
                 Item(
                     id=__prettyname__,
                     text="{0} {1}".format(k, l[0]),
@@ -87,7 +87,7 @@ def agregate(query):
                     ]
                 )
             )
-    return items
+    return l
 
 
 if __name__ == "__main__":
